@@ -1,64 +1,64 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>Á÷¿øµî·Ï</h3>
+	<h3>ì§ì›ë“±ë¡</h3>
 	<form action="./14-2.jsp">
 		<table border="1">
 			<tr>
-				<td>¾ÆÀÌµð</td>
+				<td>ì•„ì´ë””</td>
 				<td><input type="text" name="uid" /></td>
 			</tr>
 			<tr>
-				<td>ÀÌ¸§</td>
+				<td>ì´ë¦„</td>
 				<td><input type="text" name="name" /></td>
 			</tr>
 			<tr>
-				<td>ÈÞ´ëÆù</td>
+				<td>íœ´ëŒ€í°</td>
 				<td><input type="text" name="hp" maxlength="13" /></td>
 			</tr>
 			<tr>
-				<td>ÁÖ¼Ò</td>
+				<td>ì£¼ì†Œ</td>
 				<td>
 				<select name="addr">
-					<option>¼­¿ï</option>
-					<option>´ëÀü</option>
-					<option>´ë±¸</option>
-					<option>ºÎ»ê</option>
-					<option>±¤ÁÖ</option>	
+					<option>ì„œìš¸</option>
+					<option>ëŒ€ì „</option>
+					<option>ëŒ€êµ¬</option>
+					<option>ë¶€ì‚°</option>
+					<option>ê´‘ì£¼</option>	
 				</select></td>
 			</tr>
 			<tr>
-				<td>Á÷±Þ</td>
+				<td>ì§ê¸‰</td>
 				<td>
 				<select name="pos">
-					<option>»ç¿ø</option>
-					<option>´ë¸®</option>
-					<option>°úÀå</option>
-					<option>Â÷Àå</option>
-					<option>ºÎÀå</option>	
+					<option>ì‚¬ì›</option>
+					<option>ëŒ€ë¦¬</option>
+					<option>ê³¼ìž¥</option>
+					<option>ì°¨ìž¥</option>
+					<option>ë¶€ìž¥</option>	
 				</select>
 				</td>
 			</tr>
 			<tr>
-				<td>ºÎ¼­</td>
+				<td>ë¶€ì„œ</td>
 				<td>
 				<select name="dep">
-					<option value="101">°æ¿µÁö¿øºÎ</option>
-					<option value="102">ÀÎ»çºÎ</option>
-					<option value="103">°³¹ßºÎ</option>
-					<option value="104">¿µ¾÷1ºÎ</option>
-					<option value="105">¿µ¾÷2ºÎ</option>	
+					<option value="101">ê²½ì˜ì§€ì›ë¶€</option>
+					<option value="102">ì¸ì‚¬ë¶€</option>
+					<option value="103">ê°œë°œë¶€</option>
+					<option value="104">ì˜ì—…1ë¶€</option>
+					<option value="105">ì˜ì—…2ë¶€</option>	
 				</select>
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2" align="right"><input type="submit" value="µî·ÏÇÏ±â"/></td>
+				<td colspan="2" align="right"><input type="submit" value="ë“±ë¡í•˜ê¸°"/></td>
 			</tr>
 		</table>
 	</form>

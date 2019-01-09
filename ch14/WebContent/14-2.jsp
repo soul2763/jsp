@@ -1,14 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	//Àü¼Û ÆÄ¶ó¹ÌÅÍ ¼ö½Å
-	//µ¥ÀÌÅÍº£ÀÌ½º ÀÛ¾÷
-	//1´Ü°è = jdbc µå¶óÀÌ¹ö ·Îµå
-	//2´Ü°è = µ¥ÀÌÅÍº£ÀÌ½º Á¢¼Ó
-	//3´Ü°è = Äõ¸®½ÇÇà°´Ã¼ »ý¼º
-	//4´Ü°è = Äõ¸®½ÇÇà
-	//5´Ü°è = °á°ú¼Â Ã³¸®(select)
-	//6´Ü°è = µ¥ÀÌÅÍº£ÀÌ½º Á¾·á
-
-
+	request.setCharacterEncoding("UTF-8");
+	String uid= request.getParameter("uid");
+	String name= request.getParameter("name");
+	String hp= request.getParameter("hp");
+	String addr= request.getParameter("addr");
+	String pos= request.getParameter("pos");
+	String dep= request.getParameter("dep");
+	
+	//ì „ì†¡ íŒŒë¼ë¯¸í„° ìˆ˜ì‹ 
+	final String HOST = "jdbc:mysql://192.168.0.156:3306/rgs";
+	final String USER = "rgs";
+	final String PASS = "1234";
+	
+	//ë°ì´í„°ë² ì´ìŠ¤ ìž‘ì—…
+	
+	//1ë‹¨ê³„ = jdbc ë“œë¼ì´ë²„ ë¡œë“œ
+	Class.forName("com.mysql.jdbc.Driver");
+	//2ë‹¨ê³„ = ë°ì´í„°ë² ì´ìŠ¤ ì ‘ì†
+	Connection conn = DriverManager.getConnection(HOST,USER,PASS);
+	//3ë‹¨ê³„ = ì¿¼ë¦¬ì‹¤í–‰ê°ì²´ ìƒì„±
+	Statement stmt = conn.createStatement();
+	//4ë‹¨ê³„ = ì¿¼ë¦¬ì‹¤í–‰
+	String sql = "insert into `USER` (uid,name,hp,addr,pos,dep,rdate) ";
+			sql +="values ('"+uid +"','"+name+"','"+hp+"','"+addr+"','"+pos+"',"+dep+" , now());";
+	stmt.executeUpdate(sql);
+	//5ë‹¨ê³„ = ê²°ê³¼ì…‹ ì²˜ë¦¬(select)
+	//6ë‹¨ê³„ = ë°ì´í„°ë² ì´ìŠ¤ ì¢…ë£Œ
+	conn.close();
+	
+	response.sendRedirect("./14-3.jsp");
 %>
+
+<h2>ë“±ë¡ì™„ë£Œ</h2>
