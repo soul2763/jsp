@@ -5,11 +5,37 @@
 		<meta charset="UTF-8">
 		<title>회원가입</title>
 		<link rel="stylesheet" href="./css/style.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>	
+	<script>
+		$(function(){
+			var input = $('input[name=id]');
+			input.focusout(function(){
+				var tag = $(this);
+				var uid = tag.val();
+				$.ajax({
+					url:'./proc/checkUid.jsp?uid=' + uid,
+					type:'get',
+					dataType: 'json',
+					success: function(data){
+						if(data.result == 1){
+							$('.resultId').css("color","red").text('이미 사용중인 아이디 입니다.');
+							tag.focus();
+						}
+						
+						else{
+							$('.resultId').css("color","green").text('사용 가능한 아이디 입니다.');
+						}
+					}
+				});
+			});
+		});
+		
+	</script>
 	</head>
 	<body>
 		<div id="member">
 			<section class="register">
-				<form action="#" method="POST">
+				<form action="./proc/register.jsp" method="POST">
 					<section>
 						<table>
 							<caption>사이트 이용정보 입력</caption>

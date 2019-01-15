@@ -8,7 +8,5 @@
 		//response.sendRedirect("./list.jsp");
 		pageContext.forward("./list.jsp");
 	}
-	
-	
 
 %>
