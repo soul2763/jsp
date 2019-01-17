@@ -1,4 +1,47 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="kr.co.board1.vo.BoardVO"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="kr.co.board1.config.SQL"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="kr.co.board1.config.DBConfig"%>
+<%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=utf-8" pageEncoding="utf-8"%>
+<%@page import="kr.co.board1.vo.MemberVO"%>
+<%
+	MemberVO member = (MemberVO)session.getAttribute("member");
+	if(member == null){
+		pageContext.forward("./login.jsp");
+	}
+	
+	
+	Connection conn = DBConfig.getConnection();
+	
+	PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_LIST);
+	
+	ResultSet rs = psmt.executeQuery();
+	
+	ArrayList<BoardVO> list = new ArrayList<>(); 
+	while(rs.next()){
+		BoardVO vo = new BoardVO();
+		
+		vo.setSeq(rs.getInt(1));
+		vo.setParent(rs.getInt(2));
+		vo.setComment(rs.getInt(3));
+		vo.setCate(rs.getString(4));
+		vo.setTitle(rs.getString(5));
+		vo.setContent(rs.getString(6));
+		vo.setFile(rs.getInt(7));
+		vo.setHit(rs.getInt(8));
+		vo.setUid(rs.getString(9));
+		vo.setRegip(rs.getString(10));
+		vo.setRdate(rs.getString(11));
+		vo.setNick(rs.getString(12));
+		list.add(vo);
+	}
+	rs.close();
+	psmt.close();
+	conn.close();
+%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,7 +54,7 @@
 			<h3>글목록</h3>
 			<!-- 리스트 -->
 			<div class="list">
-				<p class="logout">홍길동님! 반갑습니다. <a href="#">[로그아웃]</a><p>
+				<p class="logout"><%= member.getNick()%>님! 반갑습니다. <a href="./proc/logout.jsp">[로그아웃]</a><p>
 				<table>
 					<tr>
 						<td>번호</td>
@@ -21,13 +64,19 @@
 						<td>조회</td>
 					</tr>
 				
+					<%
+						for(BoardVO user : list){
+					%>
 					<tr>
-						<td>1</td>
-						<td><a href="#">테스트 제목입니다.</a>&nbsp;[3]</td>
-						<td>홍길동</td>
-						<td>18-03-01</td>
-						<td>12</td>
+						<td><%=user.getSeq() %></td>
+						<td><a href="#"><%=user.getTitle() %></a> &nbsp;[<%= user.getComment()%>]</td>
+						<td><%=user.getNick() %></td>
+						<td><%=user.getRdate().substring(2,10) %></td>
+						<td><%=user.getHit() %></td>
 					</tr>
+					<%
+						}
+					%>
 				</table>
 			</div>
 			<!-- 페이징 -->
@@ -38,7 +87,7 @@
 				<a href="#" class="next">다음</a>
 				</span>
 			</nav>
-			<a href="#" class="btnWrite">글쓰기</a>
+			<a href="./write.jsp" class="btnWrite">글쓰기</a>
 		</div>
 	</body>
 

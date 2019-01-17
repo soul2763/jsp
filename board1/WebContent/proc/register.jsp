@@ -1,3 +1,5 @@
+<%@page import="kr.co.board1.config.SQL"%>
+<%@page import="kr.co.board1.config.DBConfig"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -16,21 +18,15 @@
 	String addr1 = request.getParameter("addr1");
 	String addr2 = request.getParameter("addr2");
 	String regip = request.getRemoteAddr();
-	//데이터베이스 정보
-	final String HOST = "jdbc:mysql://192.168.0.126:3306/rgs";
-	final String USER = "rgs";
-	final String PASS = "1234";
 	
 	
-	//1단계 = jdbc 드라이버 로드
-	Class.forName("com.mysql.jdbc.Driver");
-	//2단계 = 데이터베이스 접속
-	Connection conn = DriverManager.getConnection(HOST,USER,PASS);
+
+	Connection conn = DBConfig.getConnection();
 	//3단계 = 쿼리실행객체 생성
 	
 		
 	//Statement stmt = conn.createStatement();
-	//4단계 - 쿼리실행
+	
 	/*
 	String sql = "insert into `JSP_MEMBER` set ";
 		sql += "uid='" +uid+ "', ";
@@ -46,21 +42,10 @@
 		sql += "regip='" +regip+ "', ";
 		sql += "rdate=NOW()";*/
 	
-	String  sql  = "INSERT INTO `JSP_MEMBER` SET ";
-			sql += "uid=?,";
-			sql += "pass=PASSWORD(?),";
-			sql += "name=?,";
-			sql += "nick=?,";
-			sql += "email=?,";
-			sql += "hp=?,";
-			sql += "zip=?,";
-			sql += "addr1=?,";
-			sql += "addr2=?,";
-			sql += "regip=?,";
-			sql += "rdate=NOW()";
 	
-	//5단계 - 결과셋 처리
-	PreparedStatement psmt = conn.prepareStatement(sql);
+	
+	
+	PreparedStatement psmt = conn.prepareStatement(SQL.INSERT_REGISTER);
 	psmt.setString(1, uid);
 	psmt.setString(2, pass);
 	psmt.setString(3, name);
@@ -79,5 +64,5 @@
 	
 
 	// 리다이렉트
-	response.sendRedirect("../login.jsp");
+	response.sendRedirect("../login.jsp?register=success");
 %>
