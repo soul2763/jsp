@@ -1,3 +1,4 @@
+<%@page import="kr.co.board1.service.BoardService"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="kr.co.board1.vo.BoardVO"%>
 <%@page import="java.sql.ResultSet"%>
@@ -13,7 +14,6 @@
 		pageContext.forward("./login.jsp");
 	}
 	
-	
 	Connection conn = DBConfig.getConnection();
 	
 	PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_LIST);
@@ -21,6 +21,7 @@
 	ResultSet rs = psmt.executeQuery();
 	
 	ArrayList<BoardVO> list = new ArrayList<>(); 
+	
 	while(rs.next()){
 		BoardVO vo = new BoardVO();
 		
@@ -65,14 +66,14 @@
 					</tr>
 				
 					<%
-						for(BoardVO user : list){
+						for(BoardVO vo : list){
 					%>
 					<tr>
-						<td><%=user.getSeq() %></td>
-						<td><a href="#"><%=user.getTitle() %></a> &nbsp;[<%= user.getComment()%>]</td>
-						<td><%=user.getNick() %></td>
-						<td><%=user.getRdate().substring(2,10) %></td>
-						<td><%=user.getHit() %></td>
+						<td><%=vo.getSeq() %></td>
+						<td><a href="./view.jsp?seq=<%=vo.getSeq()%>"><%=vo.getTitle() %></a> &nbsp;[<%= vo.getComment()%>]</td>
+						<td><%=vo.getNick() %></td>
+						<td><%=vo.getRdate().substring(2,10) %></td>
+						<td><%=vo.getHit() %></td>
 					</tr>
 					<%
 						}
