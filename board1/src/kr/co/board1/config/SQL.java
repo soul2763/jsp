@@ -11,10 +11,13 @@ public class SQL {
 													+ "uid=?, "
 													+ "regip=?,"
 													+ "rdate=NOW()";
-	public static final String SELECT_LIST		= "select b.*,n.nick from JSP_BOARD as b join JSP_MEMBER as n on b.uid = n.uid order by b.seq desc;";
+	public static final String SELECT_LIST		= "select b.*,n.nick from JSP_BOARD as b join JSP_MEMBER as n on b.uid = n.uid where parent = 0 order by b.seq desc;";
 	public static final String SELECT_VIEW		= "select * from `JSP_BOARD` where seq = ?";
 	public static final String UPDATE_HIT		= "update `JSP_BOARD` set hit = hit + 1 where seq = ?";
 	public static final String DELETE_CONTENT	= "delete from `JSP_BOARD` where seq = ?";
 	public static final String UPDATE_BOARD		= "update `JSP_BOARD` set title = ?, content = ? where seq = ?";			
+	public static final String INSERT_COMMENT	= "CALL insertComment(?,?,?,?)";
+	public static final String SELECT_COMMENT	= "select a.*, b.nick from `JSP_BOARD` as a join `JSP_MEMBER` as b on a.uid = b.uid where parent = ? order by seq ASC";
+	public static final String DELETE_COMMENT	= "delete from `JSP_BOARD` where seq = ?";
 	
 };
