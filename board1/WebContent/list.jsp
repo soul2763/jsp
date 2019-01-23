@@ -14,34 +14,25 @@
 		pageContext.forward("./login.jsp");
 	}
 	
-	Connection conn = DBConfig.getConnection();
+	request.setCharacterEncoding("UTF-8");
+	String pg = request.getParameter("pg");
 	
-	PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_LIST);
+	BoardService service = BoardService.getInstance();
 	
-	ResultSet rs = psmt.executeQuery();
+	int limit = service.getLimitStart(pg);
 	
-	ArrayList<BoardVO> list = new ArrayList<>(); 
+	//page번호 계산
+	int total = service.getTotal();
+	int pageEnd = service.getPageEnd(total);
 	
-	while(rs.next()){
-		BoardVO vo = new BoardVO();
-		
-		vo.setSeq(rs.getInt(1));
-		vo.setParent(rs.getInt(2));
-		vo.setComment(rs.getInt(3));
-		vo.setCate(rs.getString(4));
-		vo.setTitle(rs.getString(5));
-		vo.setContent(rs.getString(6));
-		vo.setFile(rs.getInt(7));
-		vo.setHit(rs.getInt(8));
-		vo.setUid(rs.getString(9));
-		vo.setRegip(rs.getString(10));
-		vo.setRdate(rs.getString(11));
-		vo.setNick(rs.getString(12));
-		list.add(vo);
-	}
-	rs.close();
-	psmt.close();
-	conn.close();
+	//글 카운트번호 계산
+	int count = service.getPageCountStart(total, limit);
+	
+	//페이지 그룹 계산
+	int[] groupStartEnd = service.getPageGroupStart(pg, pageEnd);
+	
+	
+	ArrayList<BoardVO> list = service.listBoard(limit);
 %>
 <!DOCTYPE html>
 <html>
@@ -69,7 +60,7 @@
 						for(BoardVO vo : list){
 					%>
 					<tr>
-						<td><%=vo.getSeq() %></td>
+						<td><%=count-- %></td>
 						<td><a href="./view.jsp?seq=<%=vo.getSeq()%>"><%=vo.getTitle() %></a> &nbsp;[<%= vo.getComment()%>]</td>
 						<td><%=vo.getNick() %></td>
 						<td><%=vo.getRdate().substring(2,10) %></td>
@@ -83,9 +74,17 @@
 			<!-- 페이징 -->
 			<nav class="paging">
 				<span> 
-				<a href="#" class="prev">이전</a>
-				<a href="#" class="num">1</a>
-				<a href="#" class="next">다음</a>
+				<%if(groupStartEnd[0] > 1){ %>
+				<a href="./list.jsp?pg=<%=groupStartEnd[0]-1 %>" class="prev">이전</a>
+				<%} %>
+				
+				<%for(int current = groupStartEnd[0]; current <= groupStartEnd[1]; current++){ %>
+				<a href="./list.jsp?pg=<%=current %>" class="num"><%=current %></a>
+				<%} %>
+				
+				<%if(groupStartEnd[1] < pageEnd) {%>
+				<a href="./list.jsp?pg=<%=groupStartEnd[1]+1 %>" class="next">다음</a>
+				<%} %>
 				</span>
 			</nav>
 			<a href="./write.jsp" class="btnWrite">글쓰기</a>

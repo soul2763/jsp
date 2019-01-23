@@ -11,7 +11,8 @@ public class SQL {
 													+ "uid=?, "
 													+ "regip=?,"
 													+ "rdate=NOW()";
-	public static final String SELECT_LIST		= "select b.*,n.nick from JSP_BOARD as b join JSP_MEMBER as n on b.uid = n.uid where parent = 0 order by b.seq desc;";
+	public static final String SELECT_COUNT		= "select count(*) from `JSP_BOARD` where parent= 0;";
+	public static final String SELECT_LIST		= "select b.*,n.nick from JSP_BOARD as b join JSP_MEMBER as n on b.uid = n.uid where parent = 0 order by b.seq desc limit ?, 10;";
 	public static final String SELECT_VIEW		= "select * from `JSP_BOARD` where seq = ?";
 	public static final String UPDATE_HIT		= "update `JSP_BOARD` set hit = hit + 1 where seq = ?";
 	public static final String DELETE_CONTENT	= "delete from `JSP_BOARD` where seq = ?";
