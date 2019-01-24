@@ -32,27 +32,50 @@ public class BoardService {
 	}
 	
 	//글쓰기 함수
-	public void insertBoard(HttpSession session, HttpServletRequest request, HttpServletResponse response) throws Exception{
-		request.setCharacterEncoding("utf-8");
-		String title 	= request.getParameter("subject");
-		String content	= request.getParameter("content");
-		String regip = request.getRemoteAddr();
-		MemberVO member = (MemberVO)session.getAttribute("member");
-		String uid = member.getUid();
-		
+	public int writeBoard(int file, String... args) throws Exception{
 		Connection conn = DBConfig.getConnection();
-
+		//트랜젝션 시작
+		conn.setAutoCommit(false);
 		PreparedStatement psmt = conn.prepareStatement(SQL.INSERT_BOARD);
-		psmt.setString(1, title);
-		psmt.setString(2, content);
-		psmt.setString(3, uid);
-		psmt.setString(4, regip);
+		psmt.setString(1, args[0]);
+		psmt.setString(2, args[1]);
+		psmt.setString(3, args[2]);
+		psmt.setInt(4, file);
+		psmt.setString(5, args[3]);
+		
+		Statement stmt = conn.createStatement();
+		
+		psmt.executeUpdate();
+		ResultSet rs = stmt.executeQuery(SQL.SELECT_MAX_SEQ);
+		
+		//트랜젝션 끝
+		conn.commit();
+		
+		int seq = 0;
+		if(rs.next()) {
+			seq = rs.getInt(1);
+		}
+		
+		
+		rs.close();
+		stmt.close();
+		conn.close();
+		psmt.close();
+		return seq;
+	}
+
+	public void fileInsert(int parent, String oldName, String newName) throws Exception{
+		Connection conn = DBConfig.getConnection();
+		
+		PreparedStatement psmt = conn.prepareStatement(SQL.INSERT_FILE);
+		psmt.setInt(1, parent);
+		psmt.setString(2, oldName);
+		psmt.setString(3, newName);
 		
 		psmt.executeUpdate();
 		
-		conn.close();
 		psmt.close();
-		response.sendRedirect("../list.jsp");
+		conn.close();
 	}
 	
 	public int getTotal() throws Exception{
@@ -294,6 +317,7 @@ public class BoardService {
 		conn.close();
 		return parent;
 	}
+
 	public ArrayList<BoardVO> listComment(String parent) throws Exception{
 		Connection conn = DBConfig.getConnection();
 		
