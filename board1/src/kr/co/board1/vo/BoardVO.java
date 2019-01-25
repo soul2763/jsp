@@ -12,6 +12,50 @@ public class BoardVO {
 	private String regip;
 	private String rdate;
 	private String nick;
+	
+	private int fileseq;
+	private int fileparent;
+	private String oldname;
+	private String newname;
+	private int download;
+	private String filerdate;
+	
+	public int getFileseq() {
+		return fileseq;
+	}
+	public void setFileseq(int fileseq) {
+		this.fileseq = fileseq;
+	}
+	public int getFileparent() {
+		return fileparent;
+	}
+	public void setFileparent(int fileparent) {
+		this.fileparent = fileparent;
+	}
+	public String getOldname() {
+		return oldname;
+	}
+	public void setOldname(String oldname) {
+		this.oldname = oldname;
+	}
+	public String getNewname() {
+		return newname;
+	}
+	public void setNewname(String newname) {
+		this.newname = newname;
+	}
+	public int getDownload() {
+		return download;
+	}
+	public void setDownload(int download) {
+		this.download = download;
+	}
+	public String getFilerdate() {
+		return filerdate;
+	}
+	public void setFilerdate(String filerdate) {
+		this.filerdate = filerdate;
+	}
 	public String getNick() {
 		return nick;
 	}

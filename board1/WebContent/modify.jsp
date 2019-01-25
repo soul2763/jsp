@@ -5,7 +5,6 @@
 	BoardService service = BoardService.getInstance();
 	BoardVO vo = service.viewBoard(request);
 	
-
 %>
 <!DOCTYPE html>
 <html>
@@ -47,5 +46,3 @@
 		</div>
 	</body>
 </html>
-
-

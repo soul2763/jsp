@@ -63,7 +63,7 @@ public class BoardService {
 		psmt.close();
 		return seq;
 	}
-
+	
 	public void fileInsert(int parent, String oldName, String newName) throws Exception{
 		Connection conn = DBConfig.getConnection();
 		
@@ -77,7 +77,7 @@ public class BoardService {
 		psmt.close();
 		conn.close();
 	}
-	
+
 	public int getTotal() throws Exception{
 		int total = 0;
 
@@ -182,6 +182,15 @@ public class BoardService {
 		return list;
 	}
 	
+	public void updateDown(String seq)throws Exception{
+		Connection conn = DBConfig.getConnection();
+		
+		PreparedStatement psmt = conn.prepareStatement(SQL.UPDATE_DOWN);
+		psmt.setString(1, seq);
+		
+		psmt.executeUpdate();
+		psmt.close();
+	}
 	//조회수 증가 함수
 	public void updateHit(int seq) throws Exception{
 				
@@ -226,14 +235,15 @@ public class BoardService {
 		
 		Connection conn = DBConfig.getConnection();
 		
-		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_VIEW);
-		
+		PreparedStatement psmt = conn.prepareStatement(SQL.SELECT_VIEW_WITH_FILE);
 		psmt.setString(1, seq);
 		
 		ResultSet rs = psmt.executeQuery();
 		
 		
 		BoardVO vo = null;
+		
+				
 		if(rs.next()){
 			vo = new BoardVO();
 			vo.setSeq(rs.getInt(1));
@@ -247,6 +257,12 @@ public class BoardService {
 			vo.setUid(rs.getString(9));
 			vo.setRegip(rs.getString(10));
 			vo.setRdate(rs.getString(11));
+			vo.setFileseq(rs.getInt(12));
+			vo.setFileparent(rs.getInt(13));
+			vo.setOldname(rs.getString(14));
+			vo.setNewname(rs.getString(15));
+			vo.setDownload(rs.getInt(16));
+			vo.setFilerdate(rs.getString(17));
 		}
 		
 		rs.close();
