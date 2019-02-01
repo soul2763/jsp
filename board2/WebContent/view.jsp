@@ -14,7 +14,7 @@
 					<table>
 						<tr>
 							<td>제목</td>
-							<td><input type="text" name="subject" value="테스트 제목 입니다." readonly />
+							<td><input type="text" name="subject" value="${vo.title}" readonly />
 							</td>
 						</tr>
 						
@@ -29,7 +29,7 @@
 						<tr>
 							<td>내용</td>
 							<td>
-								<textarea name="content" rows="20" readonly>테스트 내용 입니다.</textarea>
+								<textarea name="content" rows="20" readonly>${vo.content}</textarea>
 							</td>
 						</tr>
 					</table>
@@ -68,6 +68,9 @@
 				<h3>댓글쓰기</h3>
 				<div>
 					<form action="#" method="post">
+					<input type="hidden" name="parent" value="${vo.seq }" />
+					<input type="hidden" name="uid" value="${member.uid}" />
+					<input type="hidden" name="nick" value="${member.nick}" />
 						<textarea name="comment" rows="5"></textarea>
 						<div class="btns">
 							<a href="#" class="cancel">취소</a>
@@ -76,6 +79,41 @@
 					</form>
 				</div>
 			</section>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+			<script>
+				$(function(){
+					var btnComment = $('.comment_write .submit');
+					
+					btnComment.click(function(){
+						
+						var parent = $('.comment_write input[name=parent]').val();
+						var uid = $('.comment_write input[name=uid]').val();
+						var nick = $('.comment_write input[name=nick]').val();
+						var content = $('.comment_write textarea').val();
+						
+						var json = {"parent":parent,"uid":uid, "nick":nick, "content":content}; 
+						
+						$.ajax({
+							url: '/board2/comment.do',
+							type: 'POST',
+							dataType: 'json',
+							data: json,
+							success: function(result){
+								var comments = $('.comments'); 
+								var comment  = $('.comments > .comment');
+								
+								var commentCloned = comment.clone();
+								
+								commentCloned.find('span > .nick').text(result.nick);
+								commentCloned.find('span > .date').text(result.date);
+								commentCloned.find('textarea').text(result.content);
+								comments.append(commentCloned);
+							}
+						});
+						return false;
+					});
+				});
+			</script>
 		</div><!-- board 끝 -->
 	</body>
 

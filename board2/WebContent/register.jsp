@@ -5,11 +5,38 @@
 		<meta charset="UTF-8">
 		<title>회원가입</title>
 		<link rel="stylesheet" href="/board2/css/style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('input[name=id]').keyup(function(){
+					
+					var value = $(this).val();
+					console.log('입력값 : '+ value);
+					if(value.length >= 4){
+						//ajax 통신
+						var api = '/board2/member/userCheck.do?id='+value;
+						
+						$.getJSON(api, function(data){
+							console.log(data);
+							if(data.result == 1){
+								$('.resultId').css("color","red").text('이미 사용중인 아이디 입니다.');
+							}
+							
+							else{
+								$('.resultId').css("color","green").text('사용 가능한 아이디 입니다.');
+							}
+						});
+						
+					}
+					
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<div id="member">
 			<section class="register">
-				<form action="#" method="POST">
+				<form action="/board2/member/register.do" method="POST">
 					<section>
 						<table>
 							<caption>사이트 이용정보 입력</caption>

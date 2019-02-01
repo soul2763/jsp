@@ -2,6 +2,7 @@ package cf.chhak.controller;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -14,6 +15,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import cf.chhak.service.member.UserCheckService;
 
 public class MainController extends HttpServlet {
 	
@@ -78,10 +81,26 @@ public class MainController extends HttpServlet {
 		
 		//String view = null;
 		CommonAction instance = (CommonAction) instances.get(action);
-		String view = instance.requestProc(req, resp);
+		String result = null;
+		try {
+			result = instance.requestProc(req, resp);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher(view);
-		dispatcher.forward(req, resp);
+		if(result.startsWith("redirect:")) {
+			String redirectAddr = result.substring(9);
+			resp.sendRedirect(redirectAddr);
+		}
+		else if(result.startsWith("{")) {
+			PrintWriter out = resp.getWriter();
+			out.print(result);
+		}
+		else {
+			RequestDispatcher dispatcher = req.getRequestDispatcher(result);
+			dispatcher.forward(req, resp);
+		}
+		
 		
 	}
 }

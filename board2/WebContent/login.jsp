@@ -9,7 +9,7 @@
 	<body>
 		<div id="member">
 			<section class="login">		
-				<form action="#" method="get">
+				<form action="/board2/member/login.do" method="post">
 					<table>
 						<tr>
 							<td><img src="/board2/img/login_ico_id.png" alt="아이디" /></td>
@@ -26,7 +26,7 @@
 				<div class="info">
 					<h3>회원로그인 안내</h3>
 					<p>아직 회원이 아니시면 회원으로 가입하세요.</p>
-					<div><a href="#">회원가입</a></div>
+					<div><a href="/board2/member/terms.do">회원가입</a></div>
 				</div>			
 			</section>
 		</div>
