@@ -32,7 +32,7 @@
         <img src="/farmstory/img/head_txt_img.png" alt="3만원 이상 무료배송"/>
         <ul class="gnb">
           <li> <a href="/farmstory/introduction/hello.do">팜스토리 소개</a> </li>
-          <li> <a href="/farmstory/market/market.do">장보기</a> </li>
+          <li> <a href="/farmstory/board/list.do?gr=market&cate=market">장보기</a> </li>
           <li> <a href="/farmstory/board/list.do?gr=croptalk&cate=story">농작물 이야기</a> </li>
           <li> <a href="/farmstory/board/list.do?gr=event&cate=event">이벤트</a> </li>
           <li> <a href="/farmstory/board/list.do?gr=community&cate=notice">커뮤니티</a> </li>

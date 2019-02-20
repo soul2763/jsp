@@ -57,6 +57,6 @@ public class ViewService implements CommonAction{
 		
 		req.setAttribute("vo", vo);
 		
-		return "/board/view.jsp";
+		return "/board/view.jsp?gr="+gr+"&cate="+cate;
 	}
 }

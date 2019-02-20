@@ -18,7 +18,7 @@
 			<c:forEach var="vo" items="${list}">
 			<tr>
 				<td>${count = count-1}</td>
-				<td><a href="/farmstory/board/view.do?seq=${vo.seq}">${vo.title}</a>&nbsp;[${vo.comment}]</td>
+				<td><a href="/farmstory/board/view.do?gr=${gr}&cate=${cate}&seq=${vo.seq}">${vo.title}</a>&nbsp;[${vo.comment}]</td>
 				<td>${vo.nick}</td>
 				<td>${vo.rdate.substring(2,10)}</td>
 				<td>${vo.hit}</td>
@@ -30,13 +30,13 @@
 	<nav class="paging">
 		<span> 
 		<c:if test="${groupStartEnd[0] > 1 }">
-		<a href="list.do?pg=${groupStartEnd[0]-1}" class="prev">이전</a>
+		<a href="list.do?gr=${gr}&cate=${cate}&pg=${groupStartEnd[0]-1}" class="prev">이전</a>
 		</c:if>
 		<c:forEach var="cnt" begin="${groupStartEnd[0]}" end="${groupStartEnd[1]}">
-		<a href="list.do?pg=${cnt}" class="num">${cnt}</a>
+		<a href="list.do?gr=${gr}&cate=${cate}&pg=${cnt}" class="num">${cnt}</a>
 		</c:forEach>
 		<c:if test="${groupStartEnd[1] < pageEnd}">
-		<a href="list.do?pg=${groupStartEnd[1]+1 }" class="next">다음</a>
+		<a href="list.do?gr=${gr}&cate=${cate}&pg=${groupStartEnd[1]+1 }" class="next">다음</a>
 		</c:if>
 		</span>
 	</nav>

@@ -11,17 +11,17 @@ public class SQL {
 	public static final String SELECT_LOGIN		= "select * from `JSP_MEMBER` where uid=? and pass=PASSWORD(?)";
 	public static final String SELECT_MAX_SEQ	= "select max(seq) from `JSP_BOARD`";
 	public static final String INSERT_BOARD		= "insert into `JSP_BOARD` set "
-													+ "cate='notice', "
+													+ "cate=?, "
 													+ "title=?, "
 													+ "content=?, "
 													+ "uid=?, "
-													+ "file=?, "
+													
 													+ "regip=?,"
 													+ "rdate=NOW()";
 	
 	public static final String INSERT_FILE		= "insert into `JSP_FILE` (parent, oldName, newName, rdate) values(?,?,?,now())";
-	public static final String SELECT_COUNT		= "select count(*) from `JSP_BOARD` where parent= 0;";
-	public static final String SELECT_LIST		= "select b.*,n.nick from JSP_BOARD as b join JSP_MEMBER as n on b.uid = n.uid where parent = 0 order by b.seq desc limit ?, 10;";
+	public static final String SELECT_COUNT		= "select count(*) from `JSP_BOARD` where parent= 0 and cate = ?;";
+	public static final String SELECT_LIST		= "select b.*,n.nick from JSP_BOARD as b join JSP_MEMBER as n on b.uid = n.uid where parent = 0 and cate = ? order by b.seq desc limit ?, 10;";
 	
 	public static final String SELECT_VIEW		= "select * from `JSP_BOARD` where seq = ?";
 	
