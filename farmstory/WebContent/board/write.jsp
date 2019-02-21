@@ -5,8 +5,8 @@
 			<h3>글쓰기</h3>
 			<div class="write">
 				<form action="/farmstory/board/write.do" method="post">
-					<input type="hidden" name="gr" value="${gr}" />
-					<input type="hidden" name="cate" value="${cate}" />
+					<input type="text" name="gr" value="${gr}" />
+					<input type="text" name="cate" value="${cate}" />
 					<table>
 						<tr>
 							<td>제목</td>

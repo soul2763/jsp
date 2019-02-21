@@ -21,6 +21,7 @@ public class ViewService implements CommonAction{
 		String gr = req.getParameter("gr");
 		String cate = req.getParameter("cate");
 		
+		req.setAttribute("seq", seq);
 		req.setAttribute("gr", gr);
 		req.setAttribute("cate", cate);
 		

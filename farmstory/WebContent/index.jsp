@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="./_header.jsp" %>
 
 <main>
@@ -24,93 +25,39 @@
       <img src="./img/main_latest1_tit.png" alt="텃밭가꾸기">
       <img src="./img/main_latest1_img.jpg" alt="이미지">
       <table border="0">
-        <tr>
+      <c:forEach var="vo" items="${latest1}">
+      	<tr>
           <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
+          <td>${vo.title}</td>
+          <td>${vo.rdate}</td>
         </tr>
-        <tr>
-          <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
-        </tr>
-        <tr>
-          <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
-        </tr>
-        <tr>
-          <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
-        </tr>
-        <tr>
-          <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
-        </tr>
+      </c:forEach>
       </table>
     </div>
     <div>
       <img src="./img/main_latest2_tit.png" alt="귀농학교">
       <img src="./img/main_latest2_img.jpg" alt="이미지">
       <table border="0">
-        <tr>
-          <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
-        </tr>
-        <tr>
-          <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
-        </tr>
-        <tr>
-          <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
-        </tr>
-        <tr>
-          <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
-        </tr>
-        <tr>
-          <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
-        </tr>
+        <c:forEach var="vo" items="${latest2}">
+	      	<tr>
+	          <td>></td>
+	          <td>${vo.title}</td>
+	          <td>${vo.rdate}</td>
+	        </tr>
+      	</c:forEach>
       </table>
     </div>
     <div>
       <img src="./img/main_latest3_tit.png" alt="농작물이야기">
       <img src="./img/main_latest3_img.jpg" alt="이미지">
       <table border="0">
-        <tr>
+        <c:forEach var="vo" items="${latest3}">
+      	<tr>
           <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
+          <td>${vo.title}</td>
+          <td>${vo.rdate}</td>
         </tr>
-        <tr>
-          <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
-        </tr>
-        <tr>
-          <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
-        </tr>
-        <tr>
-          <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
-        </tr>
-        <tr>
-          <td>></td>
-          <td>쑥쑥 자라는 고추</td>
-          <td>19-02-12</td>
-        </tr>
+      </c:forEach>
       </table>
     </div>
   </div>
@@ -131,8 +78,8 @@
     <div>
       <img src="./img/main_sub2_account_tit.png" alt="계좌안내">
       <p>기업은행 123-456789-01-01-012<br>
-        기업은행 123-456789-01-01-012<br>
-        기업은행 123-456789-01-01-012
+		  기업은행 123-456789-01-01-012<br>
+		  기업은행 123-456789-01-01-012
       </p>
     </div>
     <div></div>

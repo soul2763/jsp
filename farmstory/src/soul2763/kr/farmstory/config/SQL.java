@@ -22,7 +22,7 @@ public class SQL {
 	public static final String INSERT_FILE		= "insert into `JSP_FILE` (parent, oldName, newName, rdate) values(?,?,?,now())";
 	public static final String SELECT_COUNT		= "select count(*) from `JSP_BOARD` where parent= 0 and cate = ?;";
 	public static final String SELECT_LIST		= "select b.*,n.nick from JSP_BOARD as b join JSP_MEMBER as n on b.uid = n.uid where parent = 0 and cate = ? order by b.seq desc limit ?, 10;";
-	
+	public static final String SELECT_LATEST1_LIST = "select seq, cate, title, substring(rdate,3,8) as rdate from `JSP_BOARD` where parent = 0 and cate = ? limit 5;";	
 	public static final String SELECT_VIEW		= "select * from `JSP_BOARD` where seq = ?";
 	
 	public static final String SELECT_VIEW_WITH_FILE = "select * from `JSP_BOARD` as b left join `JSP_FILE` as f on b.seq = f.parent where b.seq = ?";

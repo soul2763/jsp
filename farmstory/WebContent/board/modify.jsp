@@ -11,12 +11,12 @@
 			<table>
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name="subject" placeholder="제목을 입력하세요." required value="${vo.title}"/></td>
+					<td><input type="text" name="subject" placeholder="제목을 입력하세요." required /></td>
 				</tr>				
 				<tr>
 					<td>내용</td>
 					<td>
-						<textarea name="content" rows="20" required>${vo.content}</textarea>
+						<textarea name="content" rows="20" required></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -27,7 +27,7 @@
 				</tr>
 			</table>
 			<div class="btns">
-				<a href="/farmstory/board/list.do?gr=${gr}&cate=${cate}" class="cancel">취소</a>
+				<a href="/farmstory/board/write.do?gr=${gr}&cate=${cate}&seq=${seq}" class="cancel">취소</a>
 				<input type="submit" class="submit" value="수정완료" />
 			</div>
 		</form>
