@@ -11,11 +11,11 @@
       <header>
         <a href="../index.do" class="logo"><img src="../img/main_logo.JPG" alt="로고"></a>
         <ul class="gnb">
-          <li> <a href="../introduce/intro.do">소개</a> </li>
-          <li> <a href="./picture_fam.do">사진</a>
+          <li> <a href="../introduce/intro.do">소 개</a> </li>
+          <li> <a href="./picture_fam.do">사 진</a>
             <ul>
-              <li> <a href="./picture_fam.do" class="fam">가족사진</a></li>
-              <li> <a href="./picture_snap.do" class="snap">스냅사진</a></li>
+              <li> <a href="./picture_fam.do" class="fam">가족 사진</a></li>
+              <li> <a href="./picture_snap.do" class="snap">스냅 사진</a></li>
             </ul>
            </li>
           <li> <a href="../information/info.do">이용 안내</a> </li>

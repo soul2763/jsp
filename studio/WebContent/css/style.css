@@ -18,6 +18,7 @@
 /* 헤더 */
 header{
   position: relative;
+  text-align: center;
   width: 100%;
   height: 180px;
   min-width: 980px;
@@ -33,62 +34,50 @@ header > .gnb{
   left: 0;
   top: 90px;
   width: 100%;
-  height: 50px;
+  height: 40px;
 }
 header > .gnb > li{
   float: left;
   overflow: hidden;
   width: 20%;
   height: 100%;
-  border-left: 2px solid black;
-  box-sizing: border-box;
-  background-position-x: 50%;
-  background-position-y: 6px;
-  background-repeat: no-repeat;
 }
 header > .gnb > li > a{
   display: block;
   width: 100%;
   height: 100%;
-  font-size: 0;
-
+  font-size: 20px;
+  color: #585858;
+  font-family: 'Nanum Gothic', sans-serif;
+  padding-top:12px;
+  text-decoration:none;
+  border-top: 1px solid black;
 }
 header > .gnb > li > ul{
 }
 header > .gnb > li > ul > li{
   float: left;
-  width: 45%;
-  height: 20px;
+  width: 50%;
+  height: 35px;
 }
 header > .gnb > li > ul > li > a{
   display: block;
   width: 100%;
   height: 100%;
-  font-size: 0;
-
+  color: #585858;
+  font-size: 20px;
+  font-family: 'Nanum Gothic', sans-serif;
+  text-decoration:none;
+  padding-top:7px;
+  border-top:1px solid black;
 }
-header > .gnb > li:nth-child(1){ background-image: url('../img/nav_btn_intro.jpg');}
-header > .gnb > li:nth-child(2){background-image: url('../img/nav_btn_picture.jpg');}
-header > .gnb > li:nth-child(3){background-image: url('../img/nav_btn_info.jpg');}
-header > .gnb > li:nth-child(4){background-image: url('../img/nav_btn_map.jpg');}
-header > .gnb > li:nth-child(5){background-image: url('../img/nav_btn_reservation.jpg');}
-
-header > .gnb > li:nth-child(1):hover{background-image: url('../img/head_menu1_ov.png');}
+header > .gnb > li > a:hover{color: #F6F600;}
 header > .gnb > li:nth-child(2):hover {
-  background-image: url('../img/head_menu2_ov.png');
+  color: #F6F600;
   overflow: visible;
 }
-header > .gnb > li:nth-child(3):hover{background-image: url('../img/head_menu3_ov.png');}
-header > .gnb > li:nth-child(4):hover{background-image: url('../img/head_menu4_ov.png');}
-header > .gnb > li:nth-child(5):hover{background-image: url('../img/head_menu5_ov.png');}
-
-header > .gnb > li > ul > li:nth-child(1){
-  background-image: url('../img/nav_btn_picture.jpg');
-  background-position: center;
-}
-header > .gnb > li > ul > li:nth-child(2){
-  background-image: url('../img/nav_btn_picture.jpg');
-  background-position: center;
+header > .gnb > li > ul > li > a:hover{
+  color: #F6F600;
 }
 
 /* 메인 */
@@ -96,11 +85,9 @@ main{
   width: 100%;
   height: auto;
 }
-main > div{
-  width: 600px;
 
-}
 main > .main_slider{
+  width: 600px;
   height: 400px;
   left: 50%;
   position: relative;
@@ -276,3 +263,5 @@ footer{
   padding: 0.3em 0 0 20px;
   line-height: 1.8em;
 }
+
+/* reservation page */
