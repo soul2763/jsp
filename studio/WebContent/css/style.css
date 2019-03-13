@@ -265,3 +265,60 @@ footer{
 }
 
 /* reservation page */
+/* 로그인 */
+#member > .login {
+	width: 360px;
+	padding: 100px 0;
+	margin: 0 auto;
+}
+
+#member > .login > form {
+	position: relative;
+	padding: 20px 20px 20px 50px;
+	border: 1px solid #cfded8;
+	border-bottom: 0;
+	background: #fff;
+	margin: 0;
+}
+#member > .login img { width: 20px; }
+#member > .login table input {
+	display: block;
+    width: 162px;
+    height: 22px;
+    margin: 0 0 5px 0px;
+    border: 1px solid #e4eaec;
+    background: #f7f7f7;
+    color: #000;
+    vertical-align: middle;
+    line-height: 2em;
+}
+
+#member > .login .btnLogin {
+	position: absolute;
+	right: 52px;
+	top: 22px;
+	width: 60px;
+    height: 55px;
+    padding: 8px;
+    border: 1px solid #bebebe;
+    background: #fdfdfd;
+    color: #222;
+    cursor: pointer;
+}
+
+#member > .login > .info {
+	margin: 0 0 30px;
+    padding: 20px;
+    border: 1px solid #cfded8;
+    background: #f5f6fa;
+}
+
+#member > .login > .info > p { padding: 10px 0; line-height: 1.5em; }
+#member > .login > .info > div { text-align: right; }
+
+
+/* 공통(로그인, 약관, 회원가입) */
+.btnCancel { padding:8px; border:1px solid #bebebe; background:#fdfdfd; color:#222; }
+.btnNext   { padding:8px; border:1px solid #bebebe; background:#e9e9e9; color:#222; }
+.btnJoin   { padding:7px; border:1px solid #bebebe; background:#e9e9e9; color:#222; }
+.btnFind   { padding:4px; border:1px solid #e4eaec; background:#fdfdfd; color:#222; }
