@@ -27,7 +27,14 @@ header > .logo{
   position: absolute;
   left: 50%;
   top: 20px;
-  margin-left: -135px;
+  margin-left: -105px;
+}
+header > .btnWrite {
+	position: absolute;
+	right: 5px;
+	padding: 7px;
+	background: #F2F2F2;	
+	text-decoration: none;
 }
 header > .gnb{
   position: absolute;
@@ -80,6 +87,7 @@ header > .gnb > li > ul > li > a:hover{
   color: #F6F600;
 }
 
+
 /* 메인 */
 main{
   width: 100%;
@@ -121,7 +129,6 @@ footer{
   width:100%;
   height: 120px;
 }
-
 
 /*  intro page*/
 .intro{
@@ -185,6 +192,10 @@ footer{
   width: 30%;
   height: 250px;
   border: 1px solid black;
+}
+.p_main_img > ul > li > a > img {
+	height: 100%;
+	width: 100%;
 }
 /* map page */
   #sub{
@@ -263,8 +274,19 @@ footer{
   padding: 0.3em 0 0 20px;
   line-height: 1.8em;
 }
-
+  
 /* reservation page */
+#calendar { max-width: 100%; margin: 0 auto; }
+main > div {
+  	width: 800px;
+}
+main > .comment > p{
+	font-family: 'Noto Serif KR', serif;
+	font-size: 18px;
+
+}
+		
+
 /* 로그인 */
 #member > .login {
 	width: 360px;
