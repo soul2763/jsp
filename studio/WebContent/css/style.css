@@ -166,10 +166,15 @@ footer{
   top: 300px;
   background-image: url('../img/intro_img.jpg');
 }
-/* picture page */
+
 .back {
   width: 100%;
   height: auto;
+}
+/* picture page */
+.pic_back{
+	width: 900px;	
+	margin: 0 auto;
 }
 .pic_fam_header{
   width: 100%;
@@ -197,6 +202,30 @@ footer{
 	height: 100%;
 	width: 100%;
 }
+
+nav.paging {
+    margin: 0 0 20px;
+    padding: 20px 0 0;
+    text-align: center;
+}
+
+nav.paging a {
+	display: inline-block;
+	padding: 0 8px;
+	height: 25px;
+	color: #000;
+	background: #f2f2f2;
+	border: 1px solid #d7d7d7;
+	line-height: 25px;
+	text-decoration:none;
+}
+
+nav.paging .current {
+	border: 1px solid #6d6d6d;
+	background: #888;
+	color: #fff;
+}
+
 /* map page */
   #sub{
     text-align: center;
@@ -267,6 +296,8 @@ footer{
   background: #e5e5e5;
 }
 
+
+
 .cont > p{
   display: block;
   margin-block-start: 1em;
@@ -279,6 +310,7 @@ footer{
 #calendar { max-width: 100%; margin: 0 auto; }
 main > div {
   	width: 800px;
+	margin: 0 auto;
 }
 main > .comment > p{
 	font-family: 'Noto Serif KR', serif;
