@@ -8,14 +8,15 @@
           Copyright(C)류경선 All rights reserved.
           </br></br>
           <c:if test="${member == null}">
-          <a href="./member/login.do">관리자 로그인</a>
+          <a href="/studio/member/login.do">관리자 로그인</a>
           </c:if>
           <c:if test="${member != null}">
-          <a href="./member/logout.do">관리자 로그아웃</a>
+          <a href="/studio/member/logout.do">관리자 로그아웃</a>
           </c:if>
         </p>
-      </center>
+      	</center>
       </footer>
     </div>
+    <script src="/studio/js/lightbox.js"></script>
   </body>
 </html>

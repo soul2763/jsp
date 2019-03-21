@@ -5,12 +5,15 @@
   <head>
     <meta charset="utf-8">
     <title>studio</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/studio/js/slider.js"></script>
     <link rel="stylesheet"  href="/studio/css/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:800|Noto+Serif+KR" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cute+Font|Jua&amp;subset=korean" rel="stylesheet">
+    <link href="/studio/css/lightbox.css" rel="stylesheet">   
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/studio/js/slider.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    
   </head>
   <body>
     <div id="wrapper">

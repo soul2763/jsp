@@ -6,7 +6,7 @@
 	<div class="p_main_img">
 	<ul>
 		<c:forEach var="a" items="${list}">
-			<li><a href="../pic_img/${a.fileName}"><img src="../pic_img/${a.fileName}"/></a></li>
+			<li><a href="../pic_img/${a.fileName}" data-lightbox="image"><img src="../pic_img/${a.fileName}"/></a></li>
 		</c:forEach>
 	</ul>
 	</div>

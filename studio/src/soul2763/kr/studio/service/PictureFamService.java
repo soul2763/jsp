@@ -1,5 +1,6 @@
 package soul2763.kr.studio.service;
 
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -42,10 +43,13 @@ public class PictureFamService implements CommonAction{
 			PictureVO vo = new PictureVO();
 			vo.setFileName(rs.getString(1));
 			list.add(vo);
+			
 		}
 		rs.close();
 		psmt.close();
 		conn.close();
+		
+		
 		
 		//view로 list 객체 공유
 		req.setAttribute("list", list);
@@ -56,7 +60,6 @@ public class PictureFamService implements CommonAction{
 		
 		return "../picture/picture_fam.jsp";
 	}
-
 
 	//리스트 페이징 : 스타트 계산 함수
 	public int getLimitStart(String pg) {
