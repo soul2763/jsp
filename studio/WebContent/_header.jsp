@@ -14,13 +14,19 @@
     <script src="/studio/js/slider.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
     
+    <script language="javascript">
+    	function showPopup(){
+    		window.open("/studio/member/write.jsp", "사진 업로드", "width=400, height=200, left=150, top=50")
+    	}
+    </script>
+    
   </head>
   <body>
     <div id="wrapper">
       <header>
         <a href="/studio/index.do" class="logo"><img src="/studio/img/main_logo.JPG" alt="로고"></a>
         <c:if test="${member != null}">
-        <a href="/studio/write.do" class="btnWrite">사진 업로드</a>
+        <input type="button" class="btnWrite" value="사진 업로드" onclick="showPopup();"/>
         </c:if>
         <ul class="gnb">
           <li> <a href="/studio/introduce/intro.do">소 개</a> </li>
