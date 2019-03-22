@@ -11,14 +11,14 @@
 		<div id="board">
 			<h1>파일 첨부</h1>
 			<div class="write">
-				<form action="#" method="post">
+				<form action="../member/fileUpload.do" method="post" enctype="multipart/form-data">
 					<table>
 						<tr>
 							<td>첨부</td>
 							<td>
-							<select>
-								<option value="fam">가족사진</option>
-								<option value="snap">스냅사진</option>
+							<select name="content">
+								<option value="picture_fam">가족사진</option>
+								<option value="picture_snap">스냅사진</option>
 							</select>
 							</td>
 							<td>

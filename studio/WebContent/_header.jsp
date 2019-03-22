@@ -16,7 +16,7 @@
     
     <script language="javascript">
     	function showPopup(){
-    		window.open("/studio/member/write.jsp", "사진 업로드", "width=400, height=200, left=150, top=50")
+    		window.open("/studio/member/write.do", "사진 업로드", "width=400, height=200, left=150, top=50")
     	}
     </script>
     
